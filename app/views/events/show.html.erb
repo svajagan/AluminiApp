@@ -1,0 +1,18 @@
+<h2  class='title'>Event Detail</h2>
+Title: <%= @event.title%><br/>
+Description: <%=simple_format(@event.description)%><br/>
+Event Scheduled: <%= @event.event_at %><br/>
+Location: <%= @event.location%><br/>
+
+<%= link_to "View All Events",events_path%> |
+<%= link_to "Edit",edit_event_path(@event)%> | 
+<%=link_to_function"Add Comments","$('#new_comment').show()"%>
+
+<h3>Comments</h3>
+
+<div id="new_comment" style="display: none;background-color: lightyellow; padding: 10px; margin: 10px; border: 2px solid yellow;">
+<%= render "comments/form"%>
+</div>
+<%= render "comments/comments"%>
+
+

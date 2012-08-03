@@ -1,0 +1,7 @@
+<div id="header">
+<div style="text-align:center"> 
+  <h2 class="title">The AluminisApp</h2>
+</div>
+<div id=nav>
+  <%= link_to "Signup",new_user_path %>
+</div>

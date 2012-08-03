@@ -1,0 +1,27 @@
+<h2>New User SignUp</h2>
+
+<div id="signup">
+ 
+  <%= form_for :user,:url => signup_users_path do |f|%>
+  
+    <%= f.label :name %>:<br />
+    <%=f.text_field :name%><br/>
+    
+    <%= f.label "Course" %>:
+    <%= f.select :course_id, Course.all.collect{|c| [c.name,c.id]} %><br />
+    
+    <%= f.label :email %>:<br />
+    <%= f.text_field :email%><br />
+    
+    
+    <%= f.label :password %><br />
+    <%= f.password_field :password%></br>
+    
+    <%= f.label "Confirm Password" %>:<br />
+    <%= f.password_field :password_confirmation %><br />
+    
+    <%= f.submit "Submit" %>
+  
+<% end %>
+</div>
+

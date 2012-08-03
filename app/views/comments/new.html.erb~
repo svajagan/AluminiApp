@@ -1,0 +1,4 @@
+<h1>New Comment</h1>
+<div id="new_comment" style="display: none; background-color: lightyellow; padding: 10px; margin: 10px; border: 2px solid yellow;">
+<%= render :partial => "form"%>
+</div>
