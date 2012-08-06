@@ -3,6 +3,11 @@ module ApplicationHelper
   def format_date(time)
     time.strftime("%b %d, %Y")
   end
+  
+  def my_event_photo_path(event,photo)
+    "/events/1/photos"
+    
+  end
 
   def render_flash
     ret=""
@@ -17,7 +22,7 @@ module ApplicationHelper
     raw(ret)
   end
   
-  def  render_error(obj)
+  def  render_errors(obj)
     ret=""
     if obj.errors.any?
       ret << "<div id='errors' style='color: red'>"

@@ -4,8 +4,11 @@
 </div>
  <div id="nav">
    <%= link_to "Courses",courses_path, :class => (params[:controller]=="courses" ? "active" : "") %>
-   <%= link_to "Messages",messages_path%>
-   <%= link_to "Events",events_path%>
+   <%= link_to "Messages",messages_path, :class => (params[:controller]=="messages" ? "active" : "")%>
+   <%= link_to "Events",events_path, :class => (params[:controller]=="events" ? "active" : "")%>
+   <%= link_to "Photos",photos_path, :class => (params[:controller]=="photos" ? "active" : "")%>
+   <%= link_to "Notes",notes_path, :class => (params[:controller]=="notes" ? "active" : "")%>
+   
    <div id="login_links">
     <% if logged_in? %>
         <%= link_to "Logout", logout_users_path %>

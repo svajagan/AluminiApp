@@ -1,7 +1,6 @@
 AlumniApp::Application.routes.draw do
   
 
-  
 
   ActiveAdmin.routes(self)
 
@@ -30,7 +29,27 @@ AlumniApp::Application.routes.draw do
 	
 	resources :events do 
 	  resources :comments
+	  resources :photos
+	  resources :rsvps
+	  
 	end
+	
+	get "/feeds/messages", :controller => "feeds", :action => "messages", :format => "atom"
+
+  get "/feeds/messages/:id", :controller => "feeds", :action => "message_comments", :format => "atom"
+
+  get "/feeds/events", :controller => "feeds", :action => "events", :format => "atom"
+	resources :notes  do
+	 resources :comments
+	member do
+			get 'download'
+			
+		end
+  end
+  
+ 
+	
+	resources :photos
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

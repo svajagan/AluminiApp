@@ -7,7 +7,13 @@ class User < ActiveRecord::Base
   
   has_many :messages,:dependent => :destroy
   belongs_to :course
-  has_many :comments,:dependent => :destroy
+  has_many :comments, :as => :commentable
+  has_many :events
+  has_many :photos
+  has_many :notes
+  has_many :event_user_mappings
+ has_many :events, :through => :event_user_mappings
+ 
   validates :name, :presence => true
   validates :email, :uniqueness => true, :presence => true, :format => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 

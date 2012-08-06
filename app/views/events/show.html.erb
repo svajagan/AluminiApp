@@ -1,12 +1,24 @@
+<div id="nav">
+  <%= link_to "Attendees",event_rsvps_path(@event)%>
+</div>
+
+
 <h2  class='title'>Event Detail</h2>
+
 Title: <%= @event.title%><br/>
+
 Description: <%=simple_format(@event.description)%><br/>
+
 Event Scheduled: <%= @event.event_at %><br/>
+
 Location: <%= @event.location%><br/>
+
+<%= link_to "RSVP",event_rsvps_path(@event),:method => :post %><br/>
 
 <%= link_to "View All Events",events_path%> |
 <%= link_to "Edit",edit_event_path(@event)%> | 
-<%=link_to_function"Add Comments","$('#new_comment').show()"%>
+<%=link_to_function"Add Comments","$('#new_comment').show()"%> |
+<%= link_to_function "Add Photos","$('#new_photos').show()"%>
 
 <h3>Comments</h3>
 
@@ -14,5 +26,11 @@ Location: <%= @event.location%><br/>
 <%= render "comments/form"%>
 </div>
 <%= render "comments/comments"%>
+
+<h3>Photos</h3>
+<div id="new_photos" style="display: none;background-color: lightyellow; padding: 10px; margin: 10px; border: 2px solid yellow;">
+<%= render "photos/form"%>
+</div>
+<%= render "photos/photos"%>
 
 

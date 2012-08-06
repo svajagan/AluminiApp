@@ -34,7 +34,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @commentable = @message
+    @commentable = @event
     @comments = @commentable.comments
     @comment = Comment.new
   end
@@ -53,6 +53,7 @@ class EventsController < ApplicationController
   end
   
   def create
+    raise params.inspect
     @event = Event.new(params[:event])
     @event.user_id = current_user.id
     if @event.save
